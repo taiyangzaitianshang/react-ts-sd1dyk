@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { UseEffectInput } from './example/input';
 import './style.css';
 
 export default function App() {
-  const { value, setValue } = useState('');
+  console.log('App1');
+  const [value, setValue] = useState('');
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <React.Fragment>
+      <UseEffectInput
+        value={value}
+        onChange={(v) => {
+          setValue(v);
+        }}
+      />
+    </React.Fragment>
   );
 }
